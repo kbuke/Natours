@@ -19,14 +19,14 @@ body{
   background-image: 
     linear-gradient(
       to right bottom, 
-      hsla(111, 55%, 64%, 0.803), hsla(160, 64%, 43%, 0.796)
+      hsla(111, 55%, 64%, 0.804), hsla(160, 64%, 43%, 0.809)
     ), 
     url("resources/imgs/hero.jpg");
     
     clip-path: polygon(
       0 0,
       100% 0,
-      100% 80vh,
+      100% 85vh,
       0 100%
     );
 
@@ -59,6 +59,9 @@ body{
       at the center of the page
   */
   transform: translate(-50%, -50%);
+
+  /* due to btn:link and btn:visited being an inline block, we treat it as text */
+  text-align: center;
 }
 
 .heading-primary{
@@ -67,6 +70,8 @@ body{
 
   /* Stops headings from shaking */
   backface-visibility: hidden;
+
+  margin-bottom: 60px;
 }
 
 .heading-primary-main{
@@ -151,4 +156,51 @@ body{
     opacity: 1;
     transform: translate(0);
   }
+}
+
+/* use pseudo class for links (we used <a>) */
+.btn:link,
+/* state when a use clicks and visits the button, keeps it looking normal */
+.btn:visited{
+  text-transform: uppercase;
+  text-decoration: none;
+
+  /* This 15px is for top and bottom, 40px is left and right */
+  padding: 15px 40px;
+
+  /* gives more padding to button */
+  display: inline-block;
+
+  border-radius: 100px;
+
+  /* 
+    this ensures all possibilities are carried out as so 
+    therefore hover and click animations take 0.2s
+  */
+  transition: all .2s;
+}
+
+.btn:hover{
+  transform: translateY(-3px); /* to mv box up, use negative val */
+
+  /* 
+    first val is offset in x-direction, 
+    2nd is in y-axis, 
+    3rd valu is blur 
+    4th value is for opacity
+  */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+/* when we click, button is active */
+.btn:active{
+  /* not related to hiver state, always the initial state */
+  transform: translateY(-1px);
+  /* make shadow seem less when clicked */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white{
+  background-color: white;
+  color: #777;
 }

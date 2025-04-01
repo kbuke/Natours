@@ -17,6 +17,11 @@ export default function TitleBox(){
                         Is where life happens
                     </span>
                 </h1>
+
+                {/* two names for the className here */}
+                <a href="#" className="btn btn-white">
+                    Discover Our Tours
+                </a>
             </div>
         </div>
     )
