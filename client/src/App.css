@@ -64,6 +64,9 @@ body{
 .heading-primary{
   color: #fff;
   text-transform: uppercase;
+
+  /* Stops headings from shaking */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main{
@@ -73,6 +76,16 @@ body{
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* link to key frame moveInLeft below */
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+
+  /* 
+    animation-delay: 3s; => delays animation by set time 
+    animation-timing-function: ease-in; => how quick it takes to run these requirements
+    animation-iteration-count: 3; => how many times the animation should occur
+  */
 }
 
 .heading-primary-sub{
@@ -82,4 +95,60 @@ body{
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* 
+    due to heading-primary-main, just put animation
+    and then computer will figure out the rest
+  */
+  animation: moveInRight 2s;
+}
+
+@keyframes moveInLeft {
+  /*always best to optimise opacity and transform only*/
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); /*animated in x direction*/
+  }
+
+  /* 
+    can put values between for any value 
+    in this case it creates a snap-back effect
+  */
+  80% {
+    opacity: 0.8;
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0); /*ends exactly how it should*/
+  }
+}
+
+@keyframes moveInRight {
+  0%{
+    opacity: 0;
+    transform: 
+      translateX(100px)
+      /* allows you to rotate things */
+      /* rotate(0deg) */
+    ;
+  }
+
+  /* 
+    can put values between for any value 
+    in this case it creates a snap-back effect
+  */
+  80%{
+    opacity: 0.8;
+    transform: 
+      translateX(-20px)
+      /* rotate(120deg) */
+    ;
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
 }
