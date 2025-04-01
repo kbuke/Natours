@@ -178,6 +178,9 @@ body{
     therefore hover and click animations take 0.2s
   */
   transition: all .2s;
+
+  /* as reference for our button behind */
+  position: relative;
 }
 
 .btn:hover{
@@ -203,4 +206,54 @@ body{
 .btn-white{
   background-color: white;
   color: #777;
+
+  animation: moveUp 2s;
+}
+
+/* this adds an element looking like our original button 
+when we hover out of the button it hides behind it,
+when he hover in the button it comes before it */
+.btn::after{
+  /* always need to specifiy content and display, even if they're empty */
+  content: "";
+  display: inline-block; /* orig button is the same */
+  /* this button is a child of the orig button so 100% is the exact same dimension */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+
+  /* ensure this button goes behind orig */
+  position: absolute; /*this needs a reference, which will be the first element with relative value should be after the button orig*/
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all .4s;
+}
+
+.btn-white::after{
+  background-color: white;
+}
+
+/* just means after pseudo element only when we hover the button */
+.btn:hover::after{
+  transform: scaleX(1.4) scaleY(1.6); /*scale increases the elements size */
+  opacity: 0; /*with the transition in .btn:after this gives our fade out effect */
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  80%{
+    opacity: 0.8;
+    transform: translateY(-20px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(0);
+  }
 }
