@@ -4,13 +4,25 @@
   box-sizing: border-box;
 }
 
+html {
+  /* 
+    set root font size 
+    now 1rem = 10px
+    set to 10px for ease
+  */
+  font-size: 62.5%;
+}
+
 body{
   font-weight: 400;
-  font-size: 16px;
+  /* no longer needed due to setting root font-size */
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  /* adjust to root font-size */
+  padding: 3rem;
 }
+
 
 .header{
   height: 95vh;
@@ -38,12 +50,14 @@ body{
 
 .logo-box {
   position: absolute; 
-  top: 40px;
-  left: 40px;
+  /* adjust to root font-size */
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  /* adjust to root font-size */
+  height: 3.5rem;
   /* width will b e auto set my browser when height is set */
 }
 
@@ -71,16 +85,16 @@ body{
   /* Stops headings from shaking */
   backface-visibility: hidden;
 
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main{
   /* put text on-top of eachother */
   display: block;
 
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /* link to key frame moveInLeft below */
   animation-name: moveInLeft;
@@ -97,9 +111,9 @@ body{
   /* put text on-top of eachother */
   display: block;
 
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.74rem;
 
   /* 
     due to heading-primary-main, just put animation
@@ -112,7 +126,7 @@ body{
   /*always best to optimise opacity and transform only*/
   0% {
     opacity: 0;
-    transform: translateX(-100px); /*animated in x direction*/
+    transform: translateX(-10rem); /*animated in x direction*/
   }
 
   /* 
@@ -121,7 +135,7 @@ body{
   */
   80% {
     opacity: 0.8;
-    transform: translateX(20px);
+    transform: translateX(2rem);
   }
 
   100% {
@@ -134,7 +148,7 @@ body{
   0%{
     opacity: 0;
     transform: 
-      translateX(100px)
+      translateX(1rem)
       /* allows you to rotate things */
       /* rotate(0deg) */
     ;
@@ -147,7 +161,7 @@ body{
   80%{
     opacity: 0.8;
     transform: 
-      translateX(-20px)
+      translateX(-2rem)
       /* rotate(120deg) */
     ;
   }
@@ -166,12 +180,12 @@ body{
   text-decoration: none;
 
   /* This 15px is for top and bottom, 40px is left and right */
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
 
   /* gives more padding to button */
   display: inline-block;
 
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* 
     this ensures all possibilities are carried out as so 
@@ -181,10 +195,12 @@ body{
 
   /* as reference for our button behind */
   position: relative;
+
+  font-size: 1.6rem;
 }
 
 .btn:hover{
-  transform: translateY(-3px); /* to mv box up, use negative val */
+  transform: translateY(-0.3rem); /* to mv box up, use negative val */
 
   /* 
     first val is offset in x-direction, 
@@ -192,15 +208,15 @@ body{
     3rd valu is blur 
     4th value is for opacity
   */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2); 
 }
 
 /* when we click, button is active */
 .btn:active{
   /* not related to hiver state, always the initial state */
-  transform: translateY(-1px);
+  transform: translateY(-0.1rem);
   /* make shadow seem less when clicked */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-white{
@@ -220,7 +236,7 @@ when he hover in the button it comes before it */
   /* this button is a child of the orig button so 100% is the exact same dimension */
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* ensure this button goes behind orig */
   position: absolute; /*this needs a reference, which will be the first element with relative value should be after the button orig*/
@@ -244,12 +260,12 @@ when he hover in the button it comes before it */
 @keyframes moveUp {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(10rem);
   }
 
   80%{
     opacity: 0.8;
-    transform: translateY(-20px);
+    transform: translateY(-2rem);
   }
 
   100%{
