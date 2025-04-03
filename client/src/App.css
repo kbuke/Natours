@@ -1,7 +1,9 @@
-*{
+*,
+*::after,
+*::before{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 html {
@@ -21,6 +23,9 @@ body{
   color: #777;
   /* adjust to root font-size */
   padding: 3rem;
+
+  /* benefit from inheritcance in universal declaration (*) */
+  box-sizing: border-box;
 }
 
 
@@ -48,20 +53,20 @@ body{
     position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute; 
   /* adjust to root font-size */
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   /* adjust to root font-size */
   height: 3.5rem;
   /* width will b e auto set my browser when height is set */
 }
 
-.text-box{
+.header__text-box{
   position: absolute;
 
   /*  This positions the left and top of the box at the 50% mark */
@@ -88,7 +93,7 @@ body{
   margin-bottom: 6rem;
 }
 
-.heading-primary-main{
+.heading-primary--main{
   /* put text on-top of eachother */
   display: block;
 
@@ -107,7 +112,7 @@ body{
   */
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
   /* put text on-top of eachother */
   display: block;
 
@@ -219,7 +224,7 @@ body{
   box-shadow: 0 5px 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-white{
+.btn--white{
   background-color: white;
   color: #777;
 
@@ -247,7 +252,7 @@ when he hover in the button it comes before it */
   transition: all .4s;
 }
 
-.btn-white::after{
+.btn--white::after{
   background-color: white;
 }
 
