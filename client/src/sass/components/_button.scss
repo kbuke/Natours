@@ -1,0 +1,86 @@
+.btn{
+    /* use pseudo class for links (we used <a>) */
+    &:link,
+    /* state when a use clicks and visits the button, keeps it looking normal */
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+
+        /* This 15px is for top and bottom, 40px is left and right */
+        padding: 1.5rem 4rem;
+
+        /* gives more padding to button */
+        display: inline-block;
+
+        border-radius: 10rem;
+
+        /* 
+            this ensures all possibilities are carried out as so 
+            therefore hover and click animations take 0.2s
+        */
+        transition: all .2s;
+
+        /* as reference for our button behind */
+        position: relative;
+
+        font-size: 1.6rem;
+    }
+
+    &:hover{
+        transform: translateY(-0.3rem); /* to mv box up, use negative val */
+
+        /* 
+            first val is offset in x-direction, 
+            2nd is in y-axis, 
+            3rd value is blur 
+            4th value is for opacity
+        */
+        box-shadow: 0 1rem 2rem rgba($color-black, .2); 
+
+        /* just means after pseudo element only when we hover the button */
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6); /*scale increases the elements size */
+            opacity: 0; /*with the transition in .btn:after this gives our fade out effect */
+        }
+    }
+
+    /* when we click, button is active */
+    &:active{
+        /* not related to hiver state, always the initial state */
+        transform: translateY(-0.1rem);
+        /* make shadow seem less when clicked */
+        box-shadow: 0 5px 1rem rgba($color-black, .2);
+    }
+
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        animation: moveUp 2s;
+
+        &::after{
+            background-color: $color-white;
+        }
+    }
+
+    /* this adds an element looking like our original button 
+    when we hover out of the button it hides behind it,
+    when he hover in the button it comes before it */
+    &::after{
+        /* always need to specifiy content and display, even if they're empty */
+        content: "";
+        display: inline-block; /* orig button is the same */
+        /* this button is a child of the orig button so 100% is the exact same dimension */
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+
+        /* ensure this button goes behind orig */
+        position: absolute; /*this needs a reference, which will be the first element with relative value should be after the button orig*/
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all .4s;
+    }
+}

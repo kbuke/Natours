@@ -1,0 +1,32 @@
+//partial files are marked by underscore _
+
+//Basic definitions of entire project
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 
+    set root font size 
+    now 1rem = 10px
+    set to 10px for ease
+  */
+  font-size: 62.5%;
+}
+
+body{
+  font-weight: 400;
+  /* no longer needed due to setting root font-size */
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  /* adjust to root font-size */
+  padding: 3rem;
+
+  /* benefit from inheritcance in universal declaration (*) */
+  box-sizing: border-box;
+}

@@ -1,0 +1,66 @@
+@keyframes moveInLeft {
+    /*always best to optimise opacity and transform only*/
+    0% {
+      opacity: 0;
+      transform: translateX(-10rem); /*animated in x direction*/
+    }
+  
+    /* 
+      can put values between for any value 
+      in this case it creates a snap-back effect
+    */
+    80% {
+      opacity: 0.8;
+      transform: translateX(2rem);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate(0); /*ends exactly how it should*/
+    }
+  }
+  
+  @keyframes moveInRight {
+    0%{
+      opacity: 0;
+      transform: 
+        translateX(1rem)
+        /* allows you to rotate things */
+        /* rotate(0deg) */
+      ;
+    }
+  
+    /* 
+      can put values between for any value 
+      in this case it creates a snap-back effect
+    */
+    80%{
+      opacity: 0.8;
+      transform: 
+        translateX(-2rem)
+        /* rotate(120deg) */
+      ;
+    }
+  
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  @keyframes moveUp {
+    0% {
+      opacity: 0;
+      transform: translateY(10rem);
+    }
+  
+    80%{
+      opacity: 0.8;
+      transform: translateY(-2rem);
+    }
+  
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+  }

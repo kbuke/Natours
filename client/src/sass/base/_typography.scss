@@ -1,0 +1,43 @@
+.heading-primary{
+    color: $color-white;
+    text-transform: uppercase;
+  
+    /* Stops headings from shaking */
+    backface-visibility: hidden;
+  
+    margin-bottom: 6rem;
+  
+    &--main{
+      /* put text on-top of eachother */
+      display: block;
+  
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3.5rem;
+  
+      /* link to key frame moveInLeft below */
+      animation-name: moveInLeft;
+      animation-duration: 2s;
+  
+      /* 
+          animation-delay: 3s; => delays animation by set time 
+          animation-timing-function: ease-in; => how quick it takes to run these requirements
+          animation-iteration-count: 3; => how many times the animation should occur
+      */
+    }
+  
+    &--sub{
+      /* put text on-top of eachother */
+      display: block;
+  
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1.74rem;
+  
+      /* 
+          due to heading-primary-main, just put animation
+          and then computer will figure out the rest
+      */
+      animation: moveInRight 2s;
+    }
+  }
