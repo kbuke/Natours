@@ -1,4 +1,6 @@
 //Set variables for DRY code
+
+//Colors
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
@@ -8,3 +10,17 @@ $color-grey-dark: #777;
 $color-white: #fff;
 
 $color-black: #000;
+
+$color-grey-light-1: #f7f7f7;
+
+//Grid width
+//industry standard is 1140px
+$grid-width: 114rem;
+
+//set gaps between containers in row
+$gutter-vertical: 8rem;
+
+$gutter-horizontal: 6rem;
+
+//font sizes
+$default-font-size: 1.6rem;
