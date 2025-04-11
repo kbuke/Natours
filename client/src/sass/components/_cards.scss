@@ -1,0 +1,62 @@
+.card{
+    //to change perspective of card when hovered we need to act on the parent
+    perspective: 150rem;
+    //ensure perspective works in firefox
+    -moz-perspective: 150rem;
+    //need to ensure height of parent and child r same to keep perspective
+    height: 50rem;
+
+    position: relative;
+
+    &__side{
+        height: 50rem;
+        //make animation smoother
+        transition: all .8s ease;
+
+        //hides back part of element
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+
+        border-radius: 3px;
+        //consider creating variables for box shadows
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        //add front side
+        &--front{
+            background-color: white;
+        }
+
+        //add back side
+        &--back{
+            //before hovering the card back side is already flipped at 180 degrees
+            transform: rotateY(180deg);
+    
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+    }
+
+    //This means that we hover the card, then the side is transformed
+    //When we hover the front card it flips 180 degrees, to back side
+    &:hover &__side--front{
+        //rotate card 180 degress along y axis when hovered
+        transform: rotateY(180deg);
+    }
+
+    //When we hover back side it now needs to go back to 0
+    &:hover &__side--back{
+        transform: rotateY(0);
+    }
+}

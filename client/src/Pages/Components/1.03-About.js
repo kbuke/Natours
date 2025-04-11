@@ -4,6 +4,13 @@ import aboutImg2 from "../../resources/imgs/nat-2-large.jpg"
 import aboutImg3 from "../../resources/imgs/nat-3-large.jpg"    
 
 export default function About(){
+
+    const aboutImg = (aboutImgNumber, altPhotoNumber, classPhotoNumber) => {
+        return(
+            <img src={aboutImgNumber} alt={altPhotoNumber} className={`composition__photo composition__photo--${classPhotoNumber}`}/>
+        )
+    }
+
     return(
         <section class="section-about">
             <div class="u-center-text u-margin-bottom-big"> {/* Give this class 2 names */}
@@ -40,9 +47,9 @@ export default function About(){
                         */
                     }
                     <div className="composition">
-                        <img src={aboutImg1} alt="Photo 1" className="composition__photo composition__photo--p1" />
-                        <img src={aboutImg2} alt="Photo 2" className="composition__photo composition__photo--p2" />
-                        <img src={aboutImg3} alt="Photo 3" className="composition__photo composition__photo--p3" />
+                        {aboutImg(aboutImg1, "Photo 1", "p1")}
+                        {aboutImg(aboutImg2, "Photo 2", "p2")}
+                        {aboutImg(aboutImg3, "Photo 3", "p3")}
                     </div>
                 </div>
             </div>
