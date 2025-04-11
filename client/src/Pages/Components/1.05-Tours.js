@@ -2,13 +2,21 @@
 
 export default function Tours(){
 
-    const tourCards = (cardText, cardNo) => {
+    const tourCards = (cardImg, pictureNo, cardNo) => {
         return(
             <div className="col-1-of-3">
                 <div className="card">
                     {/*ONE SIDE OF THE CARD*/}
                     <div className="card__side card__side--front">
-                        {cardText}
+                        <div className={`card__picture card__picture--${pictureNo}`}>
+                            &nbsp;
+                        </div>
+                        <div className="card__heading">
+
+                        </div>
+                        <div className="card__details">
+
+                        </div>
                     </div>
 
                     {/*OTHER SIDE OF CARD*/}
@@ -27,9 +35,9 @@ export default function Tours(){
             </div>
 
             <div className="row">
-                {tourCards("Card 1", "1")}
-                {tourCards("Card 2", "2")}
-                {tourCards("Card 3", "3")}
+                {tourCards("Card 1", "1", "1")}
+                {tourCards("Card 2", "2", "2")}
+                {tourCards("Card 3", "3", "3")}
             </div>
         </section>
     )
