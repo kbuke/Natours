@@ -3,7 +3,9 @@ import aboutImg1 from "../../resources/imgs/nat-1-large.jpg"
 import aboutImg2 from "../../resources/imgs/nat-2-large.jpg"
 import aboutImg3 from "../../resources/imgs/nat-3-large.jpg"    
 
-export default function About(){
+export default function About({
+    sectionHeading
+}){
 
     const aboutImg = (aboutImgNumber, altPhotoNumber, classPhotoNumber) => {
         return(
@@ -13,11 +15,7 @@ export default function About(){
 
     return(
         <section class="section-about">
-            <div class="u-center-text u-margin-bottom-big"> {/* Give this class 2 names */}
-                <h2 class="heading-secondary">
-                    Exciting tours for adventurous people
-                </h2>
-            </div>
+            {sectionHeading("Exciting tours for adventurous people")}
 
             <div class="row">
                 <div class="col-1-of-2">

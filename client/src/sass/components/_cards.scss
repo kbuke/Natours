@@ -75,6 +75,9 @@
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
         &--1{
             //remember you r doing it from the App.css file
             //pics from unsplash.com
@@ -146,5 +149,32 @@
                 }
             }
         }
+    }
+
+    &__cta{
+        position: absolute;
+        //center card
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        //for the button
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box{
+        text-align: center;
+        margin-bottom: 8rem;
+        color: $color-white;
+    }
+
+    &__price-only{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value{
+        font-size: 6rem;
+        font-weight: 100;
     }
 }

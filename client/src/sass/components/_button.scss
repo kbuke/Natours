@@ -63,6 +63,11 @@
         }
     }
 
+    &--green{
+        background-color: $color-primary;
+        color: $color-white;
+    }
+
     /* this adds an element looking like our original button 
     when we hover out of the button it hides behind it,
     when he hover in the button it comes before it */

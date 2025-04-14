@@ -1,6 +1,9 @@
 
 
-export default function Tours(){
+export default function Tours({
+    sectionHeading
+}){
+
     const seaExplorerList = [
         "3 Day Tour",
         "Up to 30 People",
@@ -25,7 +28,7 @@ export default function Tours(){
         "Difficulty: Hard"
     ]
 
-    const tourCards = (cardNo, heading, tourListArray) => {
+    const tourCards = (cardNo, heading, tourListArray, price) => {
         return(
             <div className="col-1-of-3">
                 <div className="card">
@@ -53,7 +56,13 @@ export default function Tours(){
 
                     {/*OTHER SIDE OF CARD*/}
                     <div className={`card__side card__side--back card__side--back-${cardNo}`}>
-
+                        <div className="card__cta">
+                            <div className="card__price-box">
+                                <p className="card__price-only">Only</p>
+                                <o className="card__price-value">${price}</o>
+                            </div>
+                            <a href="#" className="btn btn--white">Book Now!</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,14 +71,16 @@ export default function Tours(){
 
     return(
         <section className="section-tours">
-            <div className="u-center-text u-margin-bottom-big">
-                <h2 className="heading-secondary">Most Popular Tours</h2>
-            </div>
+            {sectionHeading("Most Popular Tours")}
 
             <div className="row">
-                {tourCards("1", "The Sea Explorer", seaExplorerList)}
-                {tourCards("2", "The Forest Hiker", forestHikerList)}
-                {tourCards("3", "The Snow Adventurer", snowAdventurerList)}
+                {tourCards("1", "The Sea Explorer", seaExplorerList, "297")}
+                {tourCards("2", "The Forest Hiker", forestHikerList, "500")}
+                {tourCards("3", "The Snow Adventurer", snowAdventurerList, "769")}
+            </div>
+
+            <div className="u-center-text u-margin-top-huge">
+                <a href="#" className="btn btn--green">Discover All Tours</a>
             </div>
         </section>
     )
